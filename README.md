@@ -23,6 +23,9 @@ This project requires node and npm to be installed. It is built on VueJS and Typ
  - Run `npm install`
  - Run `npm run server`
  - This should open the site in your browser
+ 
+# Deploying It
+Set up your GitHub pages in your repo to use the `gh-pages` branch. Then run `npm run deploy`.
 
 # Adding & Changing Content
 You can make changes in the `src/consts` folder to add new heroes, upgrades, villains, and expansions.

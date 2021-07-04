@@ -4,7 +4,7 @@
     <p>Rogue-like campaign play for Marvel Champions Living Card Game.</p>
     <p>Fight multiple battles on your way to the big bad boss.</p>
 
-    <p>Keep your health between fights. Earn and level up new upgrades between each fight.</p>
+		<p><strong>Keep your health</strong> between fights. Earn and <strong>level up new upgrades</strong> between each fight.</p>
 
     <div class="expansions">
       <h2 class="banger red">Choose Your Expansions</h2>
