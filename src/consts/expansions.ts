@@ -48,6 +48,12 @@ export const RiseOfRedSkull : Expansion = {
 	]
 }
 
+export const GalaxysMostWanted : Expansion = {
+	name: "Galaxy's Most Wanted",
+	encounterSets: [
+	]
+}
+
 // Bad guys
 export const GreenGoblin : Expansion = {
 	name: 'Green Goblin',
@@ -100,10 +106,41 @@ export const DoctorStrange : Expansion = {
 	encounterSets: [],
 }
 
+export const AntMan : Expansion = {
+	name: 'Ant-man',
+	encounterSets: [],
+}
+
+export const Wasp : Expansion = {
+	name: 'Wasp',
+	encounterSets: [],
+}
+
+export const Quicksilver : Expansion = {
+	name: 'Quicksilver',
+	encounterSets: [],
+}
+
+export const StarLord : Expansion = {
+	name: 'Star-Lord',
+	encounterSets: [],
+}
+
+export const Gamora : Expansion = {
+	name: 'Gamora',
+	encounterSets: [],
+}
+
+export const Drax : Expansion = {
+	name: 'Drax',
+	encounterSets: [],
+}
+
 export const ExpansionsMap : Record<string, Expansion> = {
 	// Expansions
 	[CoreSet.name]: CoreSet,
 	[RiseOfRedSkull.name]: RiseOfRedSkull,
+	[GalaxysMostWanted.name]: GalaxysMostWanted,
 
 	// Villain packs
 	[GreenGoblin.name]: GreenGoblin,
@@ -117,9 +154,14 @@ export const ExpansionsMap : Record<string, Expansion> = {
 	[Thor.name]: Thor,
 	[MsMarvel.name]: MsMarvel,
 	[ScarletWitch.name]: ScarletWitch,
+	[AntMan.name]: AntMan,
+	[Wasp.name]: Wasp,
+	[Quicksilver.name]: Quicksilver,
+	[StarLord.name]: StarLord,
+	[Gamora.name]: Gamora,
+	[Drax.name]: Drax
 }
 
 export const ExpansionsList = Object.keys(ExpansionsMap).map(key => ExpansionsMap[key]).sort((a,b) => {
 	return a.name < b.name ? -1 : 1
 })
-

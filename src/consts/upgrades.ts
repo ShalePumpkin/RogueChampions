@@ -14,6 +14,14 @@ import {Upgrades as captainmarvel} from "@/consts/upgrades/heroes/captainmarvel"
 import {Upgrades as doctorstrange} from "@/consts/upgrades/heroes/doctorstrange";
 import {Upgrades as hulk} from "@/consts/upgrades/heroes/hulk";
 import {Upgrades as she_hulk} from "@/consts/upgrades/heroes/she-hulk";
+import {Upgrades as ant_man} from "@/consts/upgrades/heroes/ant-man";
+import {Upgrades as wasp} from "@/consts/upgrades/heroes/wasp";
+import {Upgrades as quicksilver} from "@/consts/upgrades/heroes/quicksilver";
+import {Upgrades as star_lord} from "@/consts/upgrades/heroes/star-lord";
+import {Upgrades as gamora} from "@/consts/upgrades/heroes/gamora";
+import {Upgrades as drax} from "@/consts/upgrades/heroes/drax";
+import {Upgrades as groot} from "@/consts/upgrades/heroes/groot";
+import {Upgrades as rocket_raccoon} from "@/consts/upgrades/heroes/rocket-raccoon";
 import {Upgrade, UpgradeCategory} from "@/types/upgrade";
 
 function addUpgrades (upgrades : Upgrade[]) {
@@ -40,6 +48,14 @@ addUpgrades(hawkeye)
 addUpgrades(doctorstrange)
 addUpgrades(captainamerica)
 addUpgrades(hulk)
+addUpgrades(ant_man)
+addUpgrades(wasp)
+addUpgrades(quicksilver)
+addUpgrades(star_lord)
+addUpgrades(gamora)
+addUpgrades(drax)
+addUpgrades(groot)
+addUpgrades(rocket_raccoon)
 
 export const UpgradesList = Object.keys(UpgradesMap).map(key => {
 	return UpgradesMap[key]
