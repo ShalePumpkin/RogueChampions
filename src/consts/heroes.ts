@@ -1,5 +1,5 @@
 import {Hero} from "@/types/hero";
-import {CoreSet, RiseOfRedSkull} from "@/consts/expansions";
+import {CoreSet, RiseOfRedSkull, GalaxysMostWanted} from "@/consts/expansions";
 
 export const BlackPanther : Hero = {
 	name: 'Black Panther',
@@ -87,6 +87,54 @@ export const ScarletWitch : Hero = {
 	startingHP: 10,
 }
 
+export const AntMan : Hero = {
+	name: 'Ant-man',
+	requires: 'Ant-man',
+	startingHP: 12,
+}
+
+export const Wasp : Hero = {
+	name: 'Wasp',
+	requires: 'Wasp',
+	startingHP: 11,
+}
+
+export const Quicksilver : Hero = {
+	name: 'Quicksilver',
+	requires: 'Quicksilver',
+	startingHP: 9,
+}
+
+export const StarLord : Hero = {
+	name: 'Star-Lord',
+	requires: 'Star-Lord',
+	startingHP: 10,
+}
+
+export const Gamora : Hero = {
+	name: 'Gamora',
+	requires: 'Gamora',
+	startingHP: 10,
+}
+
+export const Drax : Hero = {
+	name: 'Drax',
+	requires: 'Drax',
+	startingHP: 14,
+}
+
+export const Groot : Hero = {
+	name: 'Groot',
+	requires: GalaxysMostWanted.name,
+	startingHP: 10,
+}
+
+export const RocketRaccoon : Hero = {
+	name: 'Rocket Raccoon',
+	requires: GalaxysMostWanted.name,
+	startingHP: 9,
+}
+
 export const HeroesMap : Record<string, Hero> = {
 	[BlackPanther.name]: BlackPanther,
 	[BlackWidow.name]: BlackWidow,
@@ -102,6 +150,14 @@ export const HeroesMap : Record<string, Hero> = {
 	[SpiderMan.name]: SpiderMan,
 	[SpiderWoman.name]: SpiderWoman,
 	[Thor.name]: Thor,
+	[AntMan.name]: AntMan,
+	[Wasp.name]: Wasp,
+	[Quicksilver.name]: Quicksilver,
+	[StarLord.name]: StarLord,
+	[Gamora.name]: Gamora,
+	[Drax.name]: Drax,
+	[Groot.name]: Groot,
+	[RocketRaccoon.name]: RocketRaccoon,
 }
 
 export const HeroesList = Object.keys(HeroesMap).
