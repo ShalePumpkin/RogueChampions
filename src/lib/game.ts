@@ -28,6 +28,20 @@ export const getExpansionsVillains = (expansions: Expansion[]) : Villain[] => {
 	})
 }
 
+export const getExpansionsEncSets = (expansions: Expansion[]) : EncounterSet[] => {
+	return EncounterSetsList.filter((encSet : EncounterSet) => {
+		if (encSet.requires == null) {
+			return true
+		}
+		for (var i = 0; i < expansions.length; i++) {
+			if (expansions[i] === encSet.requires) {
+				return true
+			}
+		}
+		return false
+	})
+}
+
 export const generateTargetGame = (minDifficulty: number, maxDifficulty: number, expansions: Expansion[]) : Game => {
 	let count = 0
 	const maxTries = 500
@@ -36,12 +50,12 @@ export const generateTargetGame = (minDifficulty: number, maxDifficulty: number,
 	let newVillainsList = getExpansionsVillains(expansions)
 
 	const villain = randomItem(newVillainsList)
-	let closest : Game = generateGame(villain)
+	let closest : Game = generateGame(villain, expansions)
 	const targetDifficulty = (minDifficulty + maxDifficulty) / 2
 	do {
 		count++
 		const villain = randomItem(newVillainsList)
-		const contender = generateGame(villain)
+		const contender = generateGame(villain, expansions)
 
 		// First one in the range we return
 		if (contender.difficulty <= maxDifficulty && contender.difficulty >= minDifficulty) {
@@ -66,7 +80,7 @@ export const generateGameOption  = (minDifficulty: number, maxDifficulty: number
 	}
 }
 
-export const generateGame = (villain: Villain) : Game => {
+export const generateGame = (villain: Villain, expansions: Expansion[]) : Game => {
 	// Each villain has their own list of sets that must be included
 	const sets = villain.sets.map((name) => {
 		const set = EncounterSetsList.find((e: any) => e.name == name)
@@ -79,11 +93,13 @@ export const generateGame = (villain: Villain) : Game => {
 	if (!villain.noExtraSets) {
 		// Each game gets one random encounter automatically
 		// We loop until we find one that ISN'T part of their villain's base encounter set
+		let newEncSetList = getExpansionsEncSets(expansions)
+
 		let randomSet : EncounterSet
 		let noLoop = 0
 		do {
 			noLoop++
-			randomSet = randomItem(EncounterSetsList)
+			randomSet = randomItem(newEncSetList)
 		} while(randomSet.boss || sets.findIndex(s => s.name == randomSet.name) != -1 && noLoop < 10000)
 		sets.push(randomSet)
 	}
@@ -129,7 +145,7 @@ export const generateGame = (villain: Villain) : Game => {
 	return game
 }
 
-export const generateGames = () : Game[] => {
+export const generateGames = (expansions: Expansion[]) : Game[] => {
 	const possibleVillainKeys = VillainsList.map((v : Villain) => v.key)
 	const numGames = 4
 
@@ -143,7 +159,7 @@ export const generateGames = () : Game[] => {
 	for (var i = 0; i < 200; i++) {
 		villainKeys.forEach((key, idx) => {
 			const villain = VillainsMap[key]
-			const game = generateGame(villain)
+			const game = generateGame(villain, expansions)
 			games.push(game)
 		})
 	}
