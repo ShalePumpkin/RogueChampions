@@ -8,20 +8,39 @@ import {EncounterSet} from "@/types/encounterset";
 import {GameOption} from "@/types/gameoption";
 import {UpgradeCategoriesList} from "@/consts/upgrades";
 import {UpgradeCategory} from "@/types/upgrade";
+import {Expansion} from "@/types/expansion";
 
 interface HasDifficulty {
 	difficulty: number
 }
 
-export const generateTargetGame = (minDifficulty: number, maxDifficulty: number) : Game => {
+export const getExpansionsVillains = (expansions: Expansion[]) : Villain[] => {
+	return VillainsList.filter((villain : Villain) => {
+		if (villain.requires == null) {
+			return true
+		}
+		for (var i = 0; i < expansions.length; i++) {
+			if (expansions[i] === villain.requires) {
+				return true
+			}
+		}
+		return false
+	})
+}
+
+export const generateTargetGame = (minDifficulty: number, maxDifficulty: number, expansions: Expansion[]) : Game => {
 	let count = 0
 	const maxTries = 500
-	const villain = randomItem(VillainsList)
+
+// Insert filter here
+	let newVillainsList = getExpansionsVillains(expansions)
+
+	const villain = randomItem(newVillainsList)
 	let closest : Game = generateGame(villain)
 	const targetDifficulty = (minDifficulty + maxDifficulty) / 2
 	do {
 		count++
-		const villain = randomItem(VillainsList)
+		const villain = randomItem(newVillainsList)
 		const contender = generateGame(villain)
 
 		// First one in the range we return
@@ -38,9 +57,9 @@ export const generateTargetGame = (minDifficulty: number, maxDifficulty: number)
 	return closest
 }
 
-export const generateGameOption  = (minDifficulty: number, maxDifficulty: number, existingUpgrades: UpgradeCategory[]) : GameOption => {
+export const generateGameOption  = (minDifficulty: number, maxDifficulty: number, existingUpgrades: UpgradeCategory[], expansions: Expansion[]) : GameOption => {
 	const types = randomItemsExcluding<UpgradeCategory>(2, UpgradeCategoriesList, [], existingUpgrades)
-	const game = generateTargetGame(minDifficulty, maxDifficulty)
+	const game = generateTargetGame(minDifficulty, maxDifficulty, expansions)
 	game.rewardTypes = types
 	return {
 		game: game

@@ -1,6 +1,7 @@
 import {Villain} from "@/types/villain";
 import * as Enc from "@/consts/encountersets";
 import {ExpansionsMap} from "@/consts/expansions";
+import * as Exp from "@/consts/expansions";
 import {DF_BASE, DF_STEP_LARGE, DF_STEP_MED} from "@/consts/difficulty";
 
 // BASE GAME
@@ -8,21 +9,24 @@ export const Ultron : Villain = {
 	name: 'Ultron',
 	difficulty: DF_BASE + DF_STEP_LARGE,
 	key: 'ultron',
-	sets: [Enc.Ultron.name]
+	sets: [Enc.Ultron.name],
+	requires: Exp.CoreSet
 }
 
 export const Rhino : Villain = {
 	name: 'Rhino',
 	key: 'rhino',
 	difficulty: DF_BASE,
-	sets: [Enc.Rhino.name]
+	sets: [Enc.Rhino.name],
+	requires: Exp.CoreSet
 }
 
 export const Klaw : Villain = {
 	name: 'Klaw',
 	key: 'klaw',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.Klaw.name]
+	sets: [Enc.Klaw.name],
+	requires: Exp.CoreSet
 }
 
 // VILLAIN PACKS
@@ -31,28 +35,32 @@ export const WreckingCrew : Villain = {
 	key: 'WreckingCrew',
 	difficulty: DF_BASE,
 	sets: [Enc.WreckingCrew.name],
-	noExtraSets: true
+	noExtraSets: true,
+	requires: Exp.WreckingCrew
 }
 
 export const GreenGoblin : Villain = {
 	name: 'Green Goblin',
 	key: 'GreenGoblin',
 	difficulty: DF_BASE + DF_STEP_LARGE,
-	sets: [Enc.MutagenFormula.name]
+	sets: [Enc.MutagenFormula.name],
+	requires: Exp.GreenGoblin
 }
 
 export const NormanOsborn : Villain = {
 	name: 'Norman Osborn',
 	key: 'NormanOsborn',
 	difficulty: DF_BASE,
-	sets: [Enc.RiskyBusiness.name]
+	sets: [Enc.RiskyBusiness.name],
+	requires: Exp.GreenGoblin
 }
 
 export const Kang : Villain = {
 	name: 'The Once and Future Kang',
 	key: 'Kang',
 	difficulty: DF_BASE,
-	sets: [Enc.Kang.name]
+	sets: [Enc.Kang.name],
+	requires: Exp.Kang
 }
 
 // THE RISE OF RED SKULL
@@ -60,35 +68,40 @@ export const Crossbones : Villain = {
 	name: 'Crossbones',
 	key: 'Crossbones',
 	difficulty: DF_BASE,
-	sets: [Enc.Crossbones.name]
+	sets: [Enc.Crossbones.name],
+	requires: Exp.RiseOfRedSkull
 }
 
 export const AbsorbingMan : Villain = {
 	name: 'Absorbing Man',
 	key: 'AbsorbingMan',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.AbsorbingMan.name]
+	sets: [Enc.AbsorbingMan.name],
+	requires: Exp.RiseOfRedSkull
 }
 
 export const Taskmaster : Villain = {
 	name: 'Taskmaster',
 	key: 'Taskmaster',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.Taskmaster.name]
+	sets: [Enc.Taskmaster.name],
+	requires: Exp.RiseOfRedSkull
 }
 
 export const Zola : Villain = {
 	name: 'Zola',
 	key: 'Zola',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.Zola.name]
+	sets: [Enc.Zola.name],
+	requires: Exp.RiseOfRedSkull
 }
 
 export const RedSkull : Villain = {
 	name: 'Red Skull',
 	key: 'RedSkull',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.RedSkull.name]
+	sets: [Enc.RedSkull.name],
+	requires: Exp.RiseOfRedSkull
 }
 
 // GALAXY'S MOST WANTED
@@ -96,35 +109,40 @@ export const Drang : Villain = {
 	name: 'Drang',
 	key: 'Drang',
 	difficulty: DF_BASE + DF_STEP_MED,
-	sets: [Enc.BrotherhoodOfBadoon.name]
+	sets: [Enc.BrotherhoodOfBadoon.name],
+	requires: Exp.GalaxysMostWanted
 }
 
 export const Collector1 : Villain = {
 	name: 'Collector 1',
 	key: 'Collector1',
 	difficulty: DF_BASE + DF_STEP_LARGE,
-	sets: [Enc.InfiltrateTheMuseum.name]
+	sets: [Enc.InfiltrateTheMuseum.name],
+	requires: Exp.GalaxysMostWanted
 }
 
 export const Collector2 : Villain = {
 	name: 'Collector 2',
 	key: 'Collector2',
 	difficulty: DF_BASE + DF_STEP_LARGE,
-	sets: [Enc.EscapeTheMuseum.name]
+	sets: [Enc.EscapeTheMuseum.name],
+	requires: Exp.GalaxysMostWanted
 }
 
 export const Nebula : Villain = {
 	name: 'Nebula',
 	key: 'Nebula',
 	difficulty: DF_BASE + DF_STEP_LARGE,
-	sets: [Enc.Nebula.name]
+	sets: [Enc.Nebula.name],
+	requires: Exp.GalaxysMostWanted
 }
 
 export const Ronan : Villain = {
 	name: 'Ronan',
 	key: 'Ronan',
 	difficulty: DF_BASE + DF_STEP_LARGE,
-	sets: [Enc.RonanTheAccuser.name]
+	sets: [Enc.RonanTheAccuser.name],
+	requires: Exp.GalaxysMostWanted
 }
 
 export const VillainsMap : Record<string, Villain> = {
