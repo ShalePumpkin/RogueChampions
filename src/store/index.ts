@@ -186,7 +186,7 @@ export const options : Store = {
         let attempts = 0
         let option : GameOption
         do {
-          option = generateGameOption(targetDifficulty - DF_STEP_LARGE, targetDifficulty + DF_STEP_LARGE, upgrades)
+          option = generateGameOption(targetDifficulty - DF_STEP_LARGE, targetDifficulty + DF_STEP_LARGE, upgrades, state.expansions)
 					option.game.rewardTypes.forEach((rt) => {
 						upgrades.push(rt)
 					})
